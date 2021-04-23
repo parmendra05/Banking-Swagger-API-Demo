@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: a
+Build-Jdk: 15.0.1
+Implementation-Title: Banking-Swagger-Demo-API
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.pack
+Implementation-URL: https://spring.io/projects/spring-boot/Banking-Swagg
+ er-Demo-API
+Created-By: Maven Integration for Eclipse
+
