@@ -1,4 +1,4 @@
-package com.pack.model;
+package com.pack.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,77 +9,59 @@ public class CustomerDetails {
 
 	@Id
 	@GeneratedValue
-	Integer accountNo;
+	Integer customer_Id;
 	String customerName;
+	Integer accountNo;
 	String address;
 	Integer ballance;
 	String accountStatus;
-	
-	
-	public CustomerDetails() {
-		// TODO Auto-generated constructor stub
+
+	public Integer getCustomer_Id() {
+		return customer_Id;
 	}
 
-
-	public CustomerDetails(Integer accountNo, String customerName, String address, Integer ballance,
-			String accountStatus) {
-		super();
-		this.accountNo = accountNo;
-		this.customerName = customerName;
-		this.address = address;
-		this.ballance = ballance;
-		this.accountStatus = accountStatus;
+	public void setCustomer_Id(Integer customer_Id) {
+		this.customer_Id = customer_Id;
 	}
-
-
-	public Integer getAccountNo() {
-		return accountNo;
-	}
-
-
-	public void setAccountNo(Integer accountNo) {
-		this.accountNo = accountNo;
-	}
-
 
 	public String getCustomerName() {
 		return customerName;
 	}
 
-
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
 
+	public Integer getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(Integer accountNo) {
+		this.accountNo = accountNo;
+	}
 
 	public String getAddress() {
 		return address;
 	}
 
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 
 	public Integer getBallance() {
 		return ballance;
 	}
 
-
 	public void setBallance(Integer ballance) {
 		this.ballance = ballance;
 	}
-
 
 	public String getAccountStatus() {
 		return accountStatus;
 	}
 
-
 	public void setAccountStatus(String accountStatus) {
 		this.accountStatus = accountStatus;
 	}
-	
-	
+
 }

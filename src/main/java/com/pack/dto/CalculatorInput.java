@@ -1,35 +1,35 @@
-package com.pack.model;
+package com.pack.dto;
 
 public class CalculatorInput {
 
-	Integer loanAmount;
-	Integer durationInMonth;
+	float loanAmount;
+	float durationInMonth;
 	
 	public CalculatorInput() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
-	public CalculatorInput(Integer loanAmount, Integer durationInMonth) {
+	public CalculatorInput(float loanAmount, float durationInMonth) {
 		super();
 		this.loanAmount = loanAmount;
 		this.durationInMonth = durationInMonth;
 	}
 
 
-	public Integer getLoanAmount() {
+	public float getLoanAmount() {
 		return loanAmount;
 	}
 
-	public void setLoanAmount(Integer loanAmount) {
+	public void setLoanAmount(float loanAmount) {
 		this.loanAmount = loanAmount;
 	}
 
-	public Integer getDurationInMonth() {
+	public float getDurationInMonth() {
 		return durationInMonth;
 	}
 
-	public void setDurationInMonth(Integer durationInMonth) {
+	public void setDurationInMonth(float durationInMonth) {
 		this.durationInMonth = durationInMonth;
 	}
 

@@ -10,62 +10,67 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pack.model.CalculatorInput;
-import com.pack.model.CalculatorOutput;
-import com.pack.model.CustomerDetails;
+import com.pack.dto.CalculatorInput;
+import com.pack.dto.CalculatorOutput;
+import com.pack.dto.CustomerRequestPayload;
+import com.pack.entity.CustomerDetails;
 import com.pack.service.AccountService;
 
 @RestController
 public class HomeController {
-	
-    @Autowired
+
+	@Autowired
 	private AccountService service;
-    
-    @PostMapping("/createAccount")
-    public CustomerDetails saveCustomer(@RequestBody CustomerDetails details) {
-    	
-    	return service.saveData(details);
-    }
-    @GetMapping("/getDetails/{accountNo}")
-    public CustomerDetails getCustomer(@PathVariable ("accountNo") Integer account) {
-    	
-    	return service.getData(account);
-    }
-    
-    @PutMapping("/update/{accountNo}")
-    public CustomerDetails updateCustomer(@RequestBody CustomerDetails details) {
-    		return service.saveData(details);
-    	
-    }
-    @DeleteMapping("/delete/{accountNo}")
-    public String deleteCustomer(@PathVariable ("accountNo") Integer account) {
-    	CustomerDetails cd=service.getData(account);
-    	if(cd != null) {
-    	service.deleteData(account);
-    	return "Data Deleted Account of "+account;  
-    	}
-    	return "Provided account doesn't exist";
-    }
-    @PatchMapping("/activate/{accountNo}")
- public String activateCustomer(@PathVariable ("accountNo") Integer account) {
-    	CustomerDetails cd=service.getData(account);
-    	if(cd.getAccountStatus()=="active")return "Account already activated , Dont worry";
-    	else {
-    		cd.setAccountStatus("active");
-    		service.saveData(cd);
-    	return "account activation successfull "+account;}
-    }
-    @PatchMapping("/close/{accountNo}")
-    public String deactivateCustomer(@PathVariable ("accountNo") Integer account) {
-       	CustomerDetails cd=service.getData(account);
-       	if(cd.getAccountStatus()=="closed")return "Account already Closed , Dont worry";
-       	else {cd.setAccountStatus("closed");
-       	service.saveData(cd);
-       	return "account de-activation successfull "+account;}
-       }
-    @PostMapping("/calculator")
-    public CalculatorOutput calculator(@RequestBody CalculatorInput in) {
-    	return service.calculatorOut(in);
-    }
-    
+
+	@PostMapping("/createAccount")
+	public CustomerDetails saveCustomer(@RequestBody CustomerRequestPayload request) {
+
+		return service.saveData(request);
+	}
+
+	@GetMapping("/customer-details/{accountNo}")
+	public CustomerDetails getCustomer(@PathVariable("accountNo") Integer account) {
+
+		return service.getData(account);
+	}
+
+	@DeleteMapping("/delete/{accountNo}")
+	public String deleteCustomer(@PathVariable("accountNo") Integer account) {
+		CustomerDetails cd = service.getData(account);
+		if (cd != null) {
+			service.deleteData(account);
+			return "Data Deleted Account of " + account;
+		}
+		return "Provided account doesn't exist";
+	}
+
+	@PatchMapping("/activate/{accountNo}")
+	public String activateCustomer(@PathVariable("accountNo") Integer account) {
+		CustomerDetails cd = service.getData(account);
+		if (cd.getAccountStatus() == "Active")
+			return "Account already Active , Dont worry";
+		else {
+			cd.setAccountStatus("Active");
+			service.updateData(cd);
+			return "account activation successfull " + account;
+		}
+	}
+
+	@PatchMapping("/close/{accountNo}")
+	public String deactivateCustomer(@PathVariable("accountNo") Integer account) {
+		CustomerDetails cd = service.getData(account);
+		if (cd.getAccountStatus() == "Closed")
+			return "Account already Closed , Dont worry";
+		else {
+			cd.setAccountStatus("Closed");
+			service.updateData(cd);
+			return "account de-activation successfull " + account;
+		}
+	}
+
+	@PostMapping("/calculator")
+	public CalculatorOutput calculator(@RequestBody CalculatorInput input) {
+		return service.calculatorOut(input);
+	}
+
 }
