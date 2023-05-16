@@ -8,6 +8,7 @@
 ## Steps to Clone and Run the project
 ### Clone
 <p>git clone https://github.com/parmendra05/Banking-Swagger-API-Demo.git </p>
+
 ### Switch to branch
 <pre>
 cd Banking-Swagger-API-Demo/
