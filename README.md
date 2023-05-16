@@ -7,7 +7,7 @@
 
 ## Steps to Clone and Run the project
 ### Clone
-<p>git clone https://github.com/parmendra05/Banking-Swagger-API-Demo.git </p>
+<pre>git clone https://github.com/parmendra05/Banking-Swagger-API-Demo.git </pre>
 
 ### Switch to branch
 <pre>
@@ -16,10 +16,10 @@ git checkout master
 </pre>
 
 ### Build with Maven
-<p>mvn clean install</p>
+<pre>mvn clean install</pre>
 
 ### Run with command line
-<p>java -jar target/Banking-Swagger-Demo-API-0.0.1-SNAPSHOT.jar</p>
+<pre>java -jar target/Banking-Swagger-Demo-API-0.0.1-SNAPSHOT.jar</pre>
 
 ### Verify 
-<p> http://localhost:8080/swagger-ui.html </p>
+<pre> http://localhost:8080/swagger-ui.html </pre>
